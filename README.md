@@ -4,7 +4,7 @@ This repository has been created in order to demonstrate my skills in test autom
 # Frontend testing
 
 -  Assessment:
-The objective here is to try to use the Robot Framework automation tool and create the test cases below:
+The objective here is to use the Robot Framework automation tool and create the test cases below:
 
 -Login
 
