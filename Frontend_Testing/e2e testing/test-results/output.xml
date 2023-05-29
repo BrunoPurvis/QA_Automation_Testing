@@ -1,0 +1,2080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20230424 14:11:54.759" rpa="false">
+<suite id="s1" name="saucedemo E2E" source="C:\Users\Purvis\GitClones\Carlsberg\carlsberg_assessment\Exercise 2\second part\saucedemo_E2E.robot">
+<kw name="Run Keywords" library="BuiltIn" type="setup">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Set Selenium Implicit Wait</arg>
+<arg>2s</arg>
+<arg>AND</arg>
+<arg>Open Browser</arg>
+<arg>browser=${browser}</arg>
+<arg>url=${urlLogin}</arg>
+<arg>AND</arg>
+<arg>Wait Until Location Is</arg>
+<arg>${urlLogin}</arg>
+<arg>timeout=5s</arg>
+<arg>AND</arg>
+<arg>Maximize Browser Window</arg>
+</arguments>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:11:55.198" endtime="20230424 14:11:55.198"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>browser=${browser}</arg>
+<arg>url=${urlLogin}</arg>
+</arguments>
+<msg timestamp="20230424 14:11:55.198" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230424 14:11:55.198" endtime="20230424 14:11:57.990"></status>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<doc>Waits until the current URL is ``expected``.</doc>
+<arguments>
+<arg>${urlLogin}</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:11:57.990" endtime="20230424 14:11:58.028"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230424 14:11:58.029" endtime="20230424 14:11:58.194"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:11:55.198" endtime="20230424 14:11:58.194"></status>
+</kw>
+<test id="s1-t1" name="Accept_Choose three items_remove one_buy two_as a standard user">
+<kw name="Login as a standard user" library="login_keywords" type="setup">
+<kw name="Login with valid credentials" library="login_keywords">
+<arguments>
+<arg>${standard_user}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Go to Login Page" library="login_keywords">
+<kw name="Get Location" library="SeleniumLibrary">
+<doc>Returns the current browser window URL.</doc>
+<assign>
+<var>${currentURL}</var>
+</assign>
+<msg timestamp="20230424 14:11:58.205" level="INFO">${currentURL} = https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20230424 14:11:58.202" endtime="20230424 14:11:58.205"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${currentURL}'!='${urlLogin}'</arg>
+<arg>Run Keywords</arg>
+<arg>Go To</arg>
+<arg>${urlLogin}</arg>
+<arg>AND</arg>
+<arg>Wait Until Location Is</arg>
+<arg>${urlLogin}</arg>
+<arg>timeout=5s</arg>
+<arg>ELSE</arg>
+<arg>Reload Page</arg>
+</arguments>
+<kw name="Reload Page" library="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" starttime="20230424 14:11:58.205" endtime="20230424 14:11:58.399"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:11:58.205" endtime="20230424 14:11:58.399"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:11:58.201" endtime="20230424 14:11:58.399"></status>
+</kw>
+<kw name="Login" library="login_keywords">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathInputUsername}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20230424 14:11:58.402" level="INFO">Typing text 'standard_user' into text field '//input[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20230424 14:11:58.401" endtime="20230424 14:11:58.545"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathInputPassword}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20230424 14:11:58.545" level="INFO">Typing password into text field '//input[@id="password"]'.</msg>
+<msg timestamp="20230424 14:11:58.590" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230424 14:11:58.679" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230424 14:11:58.545" endtime="20230424 14:11:58.679"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathLoginButton}</arg>
+</arguments>
+<msg timestamp="20230424 14:11:58.679" level="INFO">Clicking button '//input[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20230424 14:11:58.679" endtime="20230424 14:11:58.819"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:11:58.400" endtime="20230424 14:11:58.819"></status>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<doc>Waits until the current URL is ``expected``.</doc>
+<arguments>
+<arg>${urlInventory}</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:11:58.819" endtime="20230424 14:11:58.849"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:11:58.200" endtime="20230424 14:11:58.849"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:11:58.199" endtime="20230424 14:11:58.849"></status>
+</kw>
+<kw name="Validate that the cart is empty" library="saucedemo_keywords">
+<kw name="Open cart" library="saucedemo_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${shoppingCarElement}</arg>
+</arguments>
+<msg timestamp="20230424 14:11:58.852" level="INFO">Clicking element '//div[@id="shopping_cart_container"]'.</msg>
+<status status="PASS" starttime="20230424 14:11:58.852" endtime="20230424 14:11:58.935"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:11:58.851" endtime="20230424 14:11:58.935"></status>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns the number of elements matching ``locator``.</doc>
+<arguments>
+<arg>class:cart_item</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20230424 14:12:00.993" level="INFO">${count} = 0</msg>
+<status status="PASS" starttime="20230424 14:11:58.936" endtime="20230424 14:12:00.993"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${count}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20230424 14:12:00.993" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230424 14:12:00.993" endtime="20230424 14:12:01.009"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:11:58.850" endtime="20230424 14:12:01.009"></status>
+</kw>
+<kw name="Click all items button" library="saucedemo_keywords">
+<kw name="Open Left Menu" library="saucedemo_keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathOpenMenuButton}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:01.009" level="INFO">Clicking button '//button[text()="Open Menu"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:01.009" endtime="20230424 14:12:01.093"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.009" endtime="20230424 14:12:01.093"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathAllItemsButton}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:01.093" level="INFO">Clicking element '//a[@id="inventory_sidebar_link"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:01.093" endtime="20230424 14:12:01.331"></status>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<doc>Waits until the current URL is ``expected``.</doc>
+<arguments>
+<arg>${urlInventory}</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.332" endtime="20230424 14:12:01.345"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.009" endtime="20230424 14:12:01.345"></status>
+</kw>
+<kw name="Get the price of all items" library="saucedemo_keywords">
+<doc>Creates a dictionary test variables which
+relates the name of the item with its price.</doc>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<assign>
+<var>&amp;{itemsNamesAndPricesDictionary}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.347" level="INFO">&amp;{itemsNamesAndPricesDictionary} = { }</msg>
+<status status="PASS" starttime="20230424 14:12:01.347" endtime="20230424 14:12:01.348"></status>
+</kw>
+<kw name="Get list of the names of the items" library="saucedemo_keywords">
+<assign>
+<var>@{allItemsNames}</var>
+</assign>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{itemsNamesList}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.349" level="INFO">@{itemsNamesList} = [ ]</msg>
+<status status="PASS" starttime="20230424 14:12:01.348" endtime="20230424 14:12:01.349"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>${xpathInventoryItemName}</arg>
+</arguments>
+<assign>
+<var>@{itemsNamesWebElementsList}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.372" level="INFO">@{itemsNamesWebElementsList} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="c59550f0885c01c31af82959e303699f", element="a141b25f-f913-44ad-a1ce-5893cf97f176")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20230424 14:12:01.349" endtime="20230424 14:12:01.373"></status>
+</kw>
+<kw name="${itemNameDiv} IN [ @{itemsNamesWebElementsList} ]" type="for">
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;a141b25f-f913-44ad-a1ce-5893cf97f176&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.394" level="INFO">${itemName} = Sauce Labs Backpack</msg>
+<status status="PASS" starttime="20230424 14:12:01.374" endtime="20230424 14:12:01.394"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.394" endtime="20230424 14:12:01.394"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.373" endtime="20230424 14:12:01.395"></status>
+</kw>
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;d268dfd0-9ee6-4a89-acc8-292d4a4929ac&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.404" level="INFO">${itemName} = Sauce Labs Bike Light</msg>
+<status status="PASS" starttime="20230424 14:12:01.395" endtime="20230424 14:12:01.404"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.404" endtime="20230424 14:12:01.404"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.395" endtime="20230424 14:12:01.404"></status>
+</kw>
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;2d197e90-94fa-4d3d-b65b-74df3d3cdc8e&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.426" level="INFO">${itemName} = Sauce Labs Bolt T-Shirt</msg>
+<status status="PASS" starttime="20230424 14:12:01.404" endtime="20230424 14:12:01.426"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.426" endtime="20230424 14:12:01.426"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.404" endtime="20230424 14:12:01.426"></status>
+</kw>
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;507224d4-3517-41a9-8968-4a99156d851e&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.436" level="INFO">${itemName} = Sauce Labs Fleece Jacket</msg>
+<status status="PASS" starttime="20230424 14:12:01.426" endtime="20230424 14:12:01.436"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.436" endtime="20230424 14:12:01.436"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.426" endtime="20230424 14:12:01.436"></status>
+</kw>
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;ef0f2dc0-2df2-47df-9545-92e1f9f08294&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.467" level="INFO">${itemName} = Sauce Labs Onesie</msg>
+<status status="PASS" starttime="20230424 14:12:01.436" endtime="20230424 14:12:01.467"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.467" endtime="20230424 14:12:01.470"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.436" endtime="20230424 14:12:01.470"></status>
+</kw>
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;22951845-1331-428a-948f-58b7ed8ec105&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.493" level="INFO">${itemName} = Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230424 14:12:01.470" endtime="20230424 14:12:01.493"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.493" endtime="20230424 14:12:01.494"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.470" endtime="20230424 14:12:01.494"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.373" endtime="20230424 14:12:01.494"></status>
+</kw>
+<msg timestamp="20230424 14:12:01.494" level="INFO">@{allItemsNames} = [ Sauce Labs Backpack | Sauce Labs Bike Light | Sauce Labs Bolt T-Shirt | Sauce Labs Fleece Jacket | Sauce Labs Onesie | Test.allTheThings() T-Shirt (Red) ]</msg>
+<status status="PASS" starttime="20230424 14:12:01.348" endtime="20230424 14:12:01.494"></status>
+</kw>
+<kw name="${itemName} IN [ @{allItemsNames} ]" type="for">
+<kw name="${itemName} = Sauce Labs Backpack" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.496" level="INFO">${xpathItemPrice} = //div[text()="Sauce Labs Backpack"]/ancestor::div[@class="inventory_item_description"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:01.495" endtime="20230424 14:12:01.496"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.526" level="INFO">${itemPrice} = $29.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.496" endtime="20230424 14:12:01.526"></status>
+</kw>
+<msg timestamp="20230424 14:12:01.526" level="INFO">${itemPrice} = $29.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.495" endtime="20230424 14:12:01.526"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${itemsNamesAndPricesDictionary}</arg>
+<arg>${itemName}</arg>
+<arg>${itemPrice}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.526" endtime="20230424 14:12:01.526"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.494" endtime="20230424 14:12:01.526"></status>
+</kw>
+<kw name="${itemName} = Sauce Labs Bike Light" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.526" level="INFO">${xpathItemPrice} = //div[text()="Sauce Labs Bike Light"]/ancestor::div[@class="inventory_item_description"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:01.526" endtime="20230424 14:12:01.526"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.552" level="INFO">${itemPrice} = $9.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.526" endtime="20230424 14:12:01.552"></status>
+</kw>
+<msg timestamp="20230424 14:12:01.552" level="INFO">${itemPrice} = $9.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.526" endtime="20230424 14:12:01.552"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${itemsNamesAndPricesDictionary}</arg>
+<arg>${itemName}</arg>
+<arg>${itemPrice}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.552" endtime="20230424 14:12:01.552"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.526" endtime="20230424 14:12:01.552"></status>
+</kw>
+<kw name="${itemName} = Sauce Labs Bolt T-Shirt" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.552" level="INFO">${xpathItemPrice} = //div[text()="Sauce Labs Bolt T-Shirt"]/ancestor::div[@class="inventory_item_description"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:01.552" endtime="20230424 14:12:01.552"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.588" level="INFO">${itemPrice} = $15.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.552" endtime="20230424 14:12:01.588"></status>
+</kw>
+<msg timestamp="20230424 14:12:01.588" level="INFO">${itemPrice} = $15.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.552" endtime="20230424 14:12:01.588"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${itemsNamesAndPricesDictionary}</arg>
+<arg>${itemName}</arg>
+<arg>${itemPrice}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.588" endtime="20230424 14:12:01.588"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.552" endtime="20230424 14:12:01.588"></status>
+</kw>
+<kw name="${itemName} = Sauce Labs Fleece Jacket" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.588" level="INFO">${xpathItemPrice} = //div[text()="Sauce Labs Fleece Jacket"]/ancestor::div[@class="inventory_item_description"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:01.588" endtime="20230424 14:12:01.588"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.626" level="INFO">${itemPrice} = $49.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.588" endtime="20230424 14:12:01.626"></status>
+</kw>
+<msg timestamp="20230424 14:12:01.626" level="INFO">${itemPrice} = $49.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.588" endtime="20230424 14:12:01.626"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${itemsNamesAndPricesDictionary}</arg>
+<arg>${itemName}</arg>
+<arg>${itemPrice}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.626" endtime="20230424 14:12:01.626"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.588" endtime="20230424 14:12:01.626"></status>
+</kw>
+<kw name="${itemName} = Sauce Labs Onesie" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.626" level="INFO">${xpathItemPrice} = //div[text()="Sauce Labs Onesie"]/ancestor::div[@class="inventory_item_description"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:01.626" endtime="20230424 14:12:01.626"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.650" level="INFO">${itemPrice} = $7.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.626" endtime="20230424 14:12:01.650"></status>
+</kw>
+<msg timestamp="20230424 14:12:01.650" level="INFO">${itemPrice} = $7.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.626" endtime="20230424 14:12:01.650"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${itemsNamesAndPricesDictionary}</arg>
+<arg>${itemName}</arg>
+<arg>${itemPrice}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.650" endtime="20230424 14:12:01.650"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.626" endtime="20230424 14:12:01.650"></status>
+</kw>
+<kw name="${itemName} = Test.allTheThings() T-Shirt (Red)" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.650" level="INFO">${xpathItemPrice} = //div[text()="Test.allTheThings() T-Shirt (Red)"]/ancestor::div[@class="inventory_item_description"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:01.650" endtime="20230424 14:12:01.650"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.682" level="INFO">${itemPrice} = $15.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.650" endtime="20230424 14:12:01.682"></status>
+</kw>
+<msg timestamp="20230424 14:12:01.682" level="INFO">${itemPrice} = $15.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.650" endtime="20230424 14:12:01.682"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${itemsNamesAndPricesDictionary}</arg>
+<arg>${itemName}</arg>
+<arg>${itemPrice}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:01.682" endtime="20230424 14:12:01.682"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.650" endtime="20230424 14:12:01.682"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.494" endtime="20230424 14:12:01.682"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${itemsNamesAndPricesDictionary}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:01.682" level="INFO">${itemsNamesAndPricesDictionary} = {'Sauce Labs Backpack': '$29.99', 'Sauce Labs Bike Light': '$9.99', 'Sauce Labs Bolt T-Shirt': '$15.99', 'Sauce Labs Fleece Jacket': '$49.99', 'Sauce Labs Onesie': '$7.99', 'Test.allTheThings() T-Shir...</msg>
+<status status="PASS" starttime="20230424 14:12:01.682" endtime="20230424 14:12:01.682"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.346" endtime="20230424 14:12:01.682"></status>
+</kw>
+<kw name="Sum of values" library="saucedemo_keywords">
+<arguments>
+<arg>${itemsNamesAndPricesDictionary['${sauceLabsBackpack}']}</arg>
+<arg>${itemsNamesAndPricesDictionary['${sauceLabsBikeLight}']}</arg>
+</arguments>
+<assign>
+<var>${totalPriceOfTheItems}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<assign>
+<var>${totalPriceOftheItems}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.682" level="INFO">${totalPriceOftheItems} = </msg>
+<status status="PASS" starttime="20230424 14:12:01.682" endtime="20230424 14:12:01.682"></status>
+</kw>
+<kw name="${itemPrice} IN [ @{listOfItemsPrices} ]" type="for">
+<kw name="${itemPrice} = $29.99" type="foritem">
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${itemPrice}</arg>
+<arg>$</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.682" level="INFO">${itemPrice} = 29.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.682" endtime="20230424 14:12:01.682"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${totalPriceOftheItems} + ${itemPrice}</arg>
+</arguments>
+<assign>
+<var>${totalPriceOftheItems}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.697" level="INFO">${totalPriceOftheItems} = 29.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.682" endtime="20230424 14:12:01.697"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.682" endtime="20230424 14:12:01.697"></status>
+</kw>
+<kw name="${itemPrice} = $9.99" type="foritem">
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${itemPrice}</arg>
+<arg>$</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.697" level="INFO">${itemPrice} = 9.99</msg>
+<status status="PASS" starttime="20230424 14:12:01.697" endtime="20230424 14:12:01.697"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${totalPriceOftheItems} + ${itemPrice}</arg>
+</arguments>
+<assign>
+<var>${totalPriceOftheItems}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.697" level="INFO">${totalPriceOftheItems} = 39.98</msg>
+<status status="PASS" starttime="20230424 14:12:01.697" endtime="20230424 14:12:01.697"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.697" endtime="20230424 14:12:01.697"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.682" endtime="20230424 14:12:01.697"></status>
+</kw>
+<msg timestamp="20230424 14:12:01.697" level="INFO">${totalPriceOfTheItems} = 39.98</msg>
+<status status="PASS" starttime="20230424 14:12:01.682" endtime="20230424 14:12:01.697"></status>
+</kw>
+<kw name="Add &quot;${sauceLabsOnesie}&quot; item to cart" library="saucedemo_keywords">
+<kw name="Convert To Lower Case" library="String">
+<doc>Converts string to lower case.</doc>
+<arguments>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.697" level="INFO">${itemName} = sauce labs onesie</msg>
+<status status="PASS" starttime="20230424 14:12:01.697" endtime="20230424 14:12:01.697"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${itemName}</arg>
+<arg>${SPACE}</arg>
+<arg>-</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.697" level="INFO">${itemName} = sauce-labs-onesie</msg>
+<status status="PASS" starttime="20230424 14:12:01.697" endtime="20230424 14:12:01.697"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathItemInStore}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemInStore}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.697" level="INFO">${xpathItemInStore} = //button[@id="add-to-cart-sauce-labs-onesie"]</msg>
+<status status="PASS" starttime="20230424 14:12:01.697" endtime="20230424 14:12:01.697"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathItemInStore}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:01.697" level="INFO">Clicking button '//button[@id="add-to-cart-sauce-labs-onesie"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:01.697" endtime="20230424 14:12:01.782"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.697" endtime="20230424 14:12:01.782"></status>
+</kw>
+<kw name="Change sort order" library="saucedemo_keywords">
+<arguments>
+<arg>${orderPriceHighToLow}</arg>
+</arguments>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathDropDownListOption}</arg>
+<arg>optionList</arg>
+<arg>${sortOrder}</arg>
+</arguments>
+<assign>
+<var>${xpathDropDownListOption}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.784" level="INFO">${xpathDropDownListOption} = //option[text()="Price (high to low)"]</msg>
+<status status="PASS" starttime="20230424 14:12:01.783" endtime="20230424 14:12:01.784"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathDropDownListOption}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:01.784" level="INFO">Clicking element '//option[text()="Price (high to low)"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:01.784" endtime="20230424 14:12:01.854"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.782" endtime="20230424 14:12:01.854"></status>
+</kw>
+<kw name="Add &quot;${sauceLabsBikeLight}&quot; item to cart" library="saucedemo_keywords">
+<kw name="Convert To Lower Case" library="String">
+<doc>Converts string to lower case.</doc>
+<arguments>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.857" level="INFO">${itemName} = sauce labs bike light</msg>
+<status status="PASS" starttime="20230424 14:12:01.857" endtime="20230424 14:12:01.857"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${itemName}</arg>
+<arg>${SPACE}</arg>
+<arg>-</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.858" level="INFO">${itemName} = sauce-labs-bike-light</msg>
+<status status="PASS" starttime="20230424 14:12:01.857" endtime="20230424 14:12:01.858"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathItemInStore}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemInStore}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.859" level="INFO">${xpathItemInStore} = //button[@id="add-to-cart-sauce-labs-bike-light"]</msg>
+<status status="PASS" starttime="20230424 14:12:01.858" endtime="20230424 14:12:01.859"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathItemInStore}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:01.859" level="INFO">Clicking button '//button[@id="add-to-cart-sauce-labs-bike-light"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:01.859" endtime="20230424 14:12:01.949"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.855" endtime="20230424 14:12:01.949"></status>
+</kw>
+<kw name="Change sort order" library="saucedemo_keywords">
+<arguments>
+<arg>${orderPriceLowToHigh}</arg>
+</arguments>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathDropDownListOption}</arg>
+<arg>optionList</arg>
+<arg>${sortOrder}</arg>
+</arguments>
+<assign>
+<var>${xpathDropDownListOption}</var>
+</assign>
+<msg timestamp="20230424 14:12:01.949" level="INFO">${xpathDropDownListOption} = //option[text()="Price (low to high)"]</msg>
+<status status="PASS" starttime="20230424 14:12:01.949" endtime="20230424 14:12:01.949"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathDropDownListOption}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:01.949" level="INFO">Clicking element '//option[text()="Price (low to high)"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:01.949" endtime="20230424 14:12:02.023"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:01.949" endtime="20230424 14:12:02.024"></status>
+</kw>
+<kw name="Add &quot;${sauceLabsBackpack}&quot; item to cart" library="saucedemo_keywords">
+<kw name="Convert To Lower Case" library="String">
+<doc>Converts string to lower case.</doc>
+<arguments>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.027" level="INFO">${itemName} = sauce labs backpack</msg>
+<status status="PASS" starttime="20230424 14:12:02.025" endtime="20230424 14:12:02.027"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${itemName}</arg>
+<arg>${SPACE}</arg>
+<arg>-</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.028" level="INFO">${itemName} = sauce-labs-backpack</msg>
+<status status="PASS" starttime="20230424 14:12:02.027" endtime="20230424 14:12:02.028"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathItemInStore}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemInStore}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.028" level="INFO">${xpathItemInStore} = //button[@id="add-to-cart-sauce-labs-backpack"]</msg>
+<status status="PASS" starttime="20230424 14:12:02.028" endtime="20230424 14:12:02.028"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathItemInStore}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:02.028" level="INFO">Clicking button '//button[@id="add-to-cart-sauce-labs-backpack"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:02.028" endtime="20230424 14:12:02.118"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.025" endtime="20230424 14:12:02.129"></status>
+</kw>
+<kw name="Open cart" library="saucedemo_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${shoppingCarElement}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:02.129" level="INFO">Clicking element '//div[@id="shopping_cart_container"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:02.129" endtime="20230424 14:12:02.196"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.129" endtime="20230424 14:12:02.196"></status>
+</kw>
+<kw name="Validate the names of the items" library="saucedemo_keywords">
+<arguments>
+<arg>${sauceLabsOnesie}</arg>
+<arg>${sauceLabsBikeLight}</arg>
+<arg>${sauceLabsBackpack}</arg>
+</arguments>
+<kw name="Get list of the names of the items" library="saucedemo_keywords">
+<assign>
+<var>@{listOfItemsNames}</var>
+</assign>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{itemsNamesList}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.201" level="INFO">@{itemsNamesList} = [ ]</msg>
+<status status="PASS" starttime="20230424 14:12:02.201" endtime="20230424 14:12:02.201"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>${xpathInventoryItemName}</arg>
+</arguments>
+<assign>
+<var>@{itemsNamesWebElementsList}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.253" level="INFO">@{itemsNamesWebElementsList} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="c59550f0885c01c31af82959e303699f", element="dca8abf5-2e2e-4a32-8938-806fd1180435")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20230424 14:12:02.202" endtime="20230424 14:12:02.253"></status>
+</kw>
+<kw name="${itemNameDiv} IN [ @{itemsNamesWebElementsList} ]" type="for">
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;dca8abf5-2e2e-4a32-8938-806fd1180435&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.268" level="INFO">${itemName} = Sauce Labs Onesie</msg>
+<status status="PASS" starttime="20230424 14:12:02.253" endtime="20230424 14:12:02.268"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.268" endtime="20230424 14:12:02.268"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.253" endtime="20230424 14:12:02.268"></status>
+</kw>
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;2aaf0084-2f03-4041-b654-c9a444e46e13&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.300" level="INFO">${itemName} = Sauce Labs Bike Light</msg>
+<status status="PASS" starttime="20230424 14:12:02.284" endtime="20230424 14:12:02.300"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.300" endtime="20230424 14:12:02.300"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.284" endtime="20230424 14:12:02.300"></status>
+</kw>
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;a10fb0ca-de0d-45bd-976d-3b4c34faeabb&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.315" level="INFO">${itemName} = Sauce Labs Backpack</msg>
+<status status="PASS" starttime="20230424 14:12:02.300" endtime="20230424 14:12:02.315"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.315" endtime="20230424 14:12:02.315"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.300" endtime="20230424 14:12:02.315"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.253" endtime="20230424 14:12:02.315"></status>
+</kw>
+<msg timestamp="20230424 14:12:02.315" level="INFO">@{listOfItemsNames} = [ Sauce Labs Onesie | Sauce Labs Bike Light | Sauce Labs Backpack ]</msg>
+<status status="PASS" starttime="20230424 14:12:02.200" endtime="20230424 14:12:02.315"></status>
+</kw>
+<kw name="Lists Should Be Equal" library="Collections">
+<doc>Fails if given lists are unequal.</doc>
+<arguments>
+<arg>${listOfItemsNames}</arg>
+<arg>${expectedListOfItemsNames}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.315" endtime="20230424 14:12:02.315"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.198" endtime="20230424 14:12:02.315"></status>
+</kw>
+<kw name="Validate total number of items" library="saucedemo_keywords">
+<arguments>
+<arg>3</arg>
+</arguments>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>${xpathShoppingCarElement}</arg>
+<arg>${totalNumberOfItemsToBuy}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:02.329" level="INFO">Verifying element '//span[@class="shopping_cart_badge"]' contains exact text '3'.</msg>
+<status status="PASS" starttime="20230424 14:12:02.329" endtime="20230424 14:12:02.347"></status>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns the number of elements matching ``locator``.</doc>
+<arguments>
+<arg>class:cart_item</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.363" level="INFO">${count} = 3</msg>
+<status status="PASS" starttime="20230424 14:12:02.347" endtime="20230424 14:12:02.363"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${count}</arg>
+<arg>${totalNumberOfItemsToBuy}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:02.363" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230424 14:12:02.363" endtime="20230424 14:12:02.363"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.315" endtime="20230424 14:12:02.363"></status>
+</kw>
+<kw name="Validate the quantity of a item" library="saucedemo_keywords">
+<arguments>
+<arg>${sauceLabsOnesie}</arg>
+<arg>1</arg>
+</arguments>
+<kw name="Get the quantity of a item to buy" library="saucedemo_keywords">
+<arguments>
+<arg>${itemToBuy}</arg>
+</arguments>
+<assign>
+<var>${itemQuantityInTheShoppingCar}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathItemQuantity}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemQuantity}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.363" level="INFO">${xpathItemQuantity} = //div[text()="Sauce Labs Onesie"]/ancestor::div[@class="cart_item"]/div[@class="cart_quantity"]</msg>
+<status status="PASS" starttime="20230424 14:12:02.363" endtime="20230424 14:12:02.363"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathItemQuantity}</arg>
+</arguments>
+<assign>
+<var>${itemQuantity}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.404" level="INFO">${itemQuantity} = 1</msg>
+<status status="PASS" starttime="20230424 14:12:02.363" endtime="20230424 14:12:02.404"></status>
+</kw>
+<msg timestamp="20230424 14:12:02.405" level="INFO">${itemQuantityInTheShoppingCar} = 1</msg>
+<status status="PASS" starttime="20230424 14:12:02.363" endtime="20230424 14:12:02.405"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${expectedQuantityOfTheItemToBuy}</arg>
+<arg>${itemQuantityInTheShoppingCar}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.405" endtime="20230424 14:12:02.406"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.363" endtime="20230424 14:12:02.406"></status>
+</kw>
+<kw name="Validate the quantity of a item" library="saucedemo_keywords">
+<arguments>
+<arg>${sauceLabsBikeLight}</arg>
+<arg>1</arg>
+</arguments>
+<kw name="Get the quantity of a item to buy" library="saucedemo_keywords">
+<arguments>
+<arg>${itemToBuy}</arg>
+</arguments>
+<assign>
+<var>${itemQuantityInTheShoppingCar}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathItemQuantity}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemQuantity}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.409" level="INFO">${xpathItemQuantity} = //div[text()="Sauce Labs Bike Light"]/ancestor::div[@class="cart_item"]/div[@class="cart_quantity"]</msg>
+<status status="PASS" starttime="20230424 14:12:02.409" endtime="20230424 14:12:02.409"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathItemQuantity}</arg>
+</arguments>
+<assign>
+<var>${itemQuantity}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.436" level="INFO">${itemQuantity} = 1</msg>
+<status status="PASS" starttime="20230424 14:12:02.410" endtime="20230424 14:12:02.436"></status>
+</kw>
+<msg timestamp="20230424 14:12:02.436" level="INFO">${itemQuantityInTheShoppingCar} = 1</msg>
+<status status="PASS" starttime="20230424 14:12:02.408" endtime="20230424 14:12:02.436"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${expectedQuantityOfTheItemToBuy}</arg>
+<arg>${itemQuantityInTheShoppingCar}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.436" endtime="20230424 14:12:02.436"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.407" endtime="20230424 14:12:02.436"></status>
+</kw>
+<kw name="Validate the quantity of a item" library="saucedemo_keywords">
+<arguments>
+<arg>${sauceLabsBackpack}</arg>
+<arg>1</arg>
+</arguments>
+<kw name="Get the quantity of a item to buy" library="saucedemo_keywords">
+<arguments>
+<arg>${itemToBuy}</arg>
+</arguments>
+<assign>
+<var>${itemQuantityInTheShoppingCar}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathItemQuantity}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemQuantity}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.436" level="INFO">${xpathItemQuantity} = //div[text()="Sauce Labs Backpack"]/ancestor::div[@class="cart_item"]/div[@class="cart_quantity"]</msg>
+<status status="PASS" starttime="20230424 14:12:02.436" endtime="20230424 14:12:02.436"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathItemQuantity}</arg>
+</arguments>
+<assign>
+<var>${itemQuantity}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.468" level="INFO">${itemQuantity} = 1</msg>
+<status status="PASS" starttime="20230424 14:12:02.436" endtime="20230424 14:12:02.468"></status>
+</kw>
+<msg timestamp="20230424 14:12:02.468" level="INFO">${itemQuantityInTheShoppingCar} = 1</msg>
+<status status="PASS" starttime="20230424 14:12:02.436" endtime="20230424 14:12:02.468"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${expectedQuantityOfTheItemToBuy}</arg>
+<arg>${itemQuantityInTheShoppingCar}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.468" endtime="20230424 14:12:02.468"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.436" endtime="20230424 14:12:02.468"></status>
+</kw>
+<kw name="Validate the prices of the items" library="saucedemo_keywords">
+<arguments>
+<arg>${sauceLabsOnesie}</arg>
+<arg>${sauceLabsBikeLight}</arg>
+<arg>${sauceLabsBackpack}</arg>
+</arguments>
+<kw name="${itemName} IN [ @{listOfItemsNames} ]" type="for">
+<kw name="${itemName} = Sauce Labs Onesie" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+<arg>xpath_item_price=${xpathItemPriceCheckoutOverview}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.468" level="INFO">${xpathItemPrice} = //div[text()="Sauce Labs Onesie"]/ancestor::div[@class="cart_item_label"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:02.468" endtime="20230424 14:12:02.468"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.499" level="INFO">${itemPrice} = $7.99</msg>
+<status status="PASS" starttime="20230424 14:12:02.468" endtime="20230424 14:12:02.499"></status>
+</kw>
+<msg timestamp="20230424 14:12:02.499" level="INFO">${itemPrice} = $7.99</msg>
+<status status="PASS" starttime="20230424 14:12:02.468" endtime="20230424 14:12:02.499"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${itemPrice}</arg>
+<arg>${itemsNamesAndPricesDictionary['${itemName}']}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.499" endtime="20230424 14:12:02.515"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.468" endtime="20230424 14:12:02.515"></status>
+</kw>
+<kw name="${itemName} = Sauce Labs Bike Light" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+<arg>xpath_item_price=${xpathItemPriceCheckoutOverview}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.515" level="INFO">${xpathItemPrice} = //div[text()="Sauce Labs Bike Light"]/ancestor::div[@class="cart_item_label"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:02.515" endtime="20230424 14:12:02.515"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.546" level="INFO">${itemPrice} = $9.99</msg>
+<status status="PASS" starttime="20230424 14:12:02.515" endtime="20230424 14:12:02.546"></status>
+</kw>
+<msg timestamp="20230424 14:12:02.546" level="INFO">${itemPrice} = $9.99</msg>
+<status status="PASS" starttime="20230424 14:12:02.515" endtime="20230424 14:12:02.546"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${itemPrice}</arg>
+<arg>${itemsNamesAndPricesDictionary['${itemName}']}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.546" endtime="20230424 14:12:02.546"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.515" endtime="20230424 14:12:02.546"></status>
+</kw>
+<kw name="${itemName} = Sauce Labs Backpack" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+<arg>xpath_item_price=${xpathItemPriceCheckoutOverview}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.546" level="INFO">${xpathItemPrice} = //div[text()="Sauce Labs Backpack"]/ancestor::div[@class="cart_item_label"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:02.546" endtime="20230424 14:12:02.546"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.577" level="INFO">${itemPrice} = $29.99</msg>
+<status status="PASS" starttime="20230424 14:12:02.546" endtime="20230424 14:12:02.577"></status>
+</kw>
+<msg timestamp="20230424 14:12:02.577" level="INFO">${itemPrice} = $29.99</msg>
+<status status="PASS" starttime="20230424 14:12:02.546" endtime="20230424 14:12:02.577"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${itemPrice}</arg>
+<arg>${itemsNamesAndPricesDictionary['${itemName}']}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.577" endtime="20230424 14:12:02.577"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.546" endtime="20230424 14:12:02.577"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.468" endtime="20230424 14:12:02.577"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.468" endtime="20230424 14:12:02.577"></status>
+</kw>
+<kw name="Remove &quot;${sauceLabsOnesie}&quot; item from the cart" library="saucedemo_keywords">
+<kw name="Convert To Lower Case" library="String">
+<doc>Converts string to lower case.</doc>
+<arguments>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.577" level="INFO">${itemName} = sauce labs onesie</msg>
+<status status="PASS" starttime="20230424 14:12:02.577" endtime="20230424 14:12:02.577"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${itemName}</arg>
+<arg>${SPACE}</arg>
+<arg>-</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.577" level="INFO">${itemName} = sauce-labs-onesie</msg>
+<status status="PASS" starttime="20230424 14:12:02.577" endtime="20230424 14:12:02.577"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathRemoveItem}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathRemoveItem}</var>
+</assign>
+<msg timestamp="20230424 14:12:02.577" level="INFO">${xpathRemoveItem} = //button[@id="remove-sauce-labs-onesie"]</msg>
+<status status="PASS" starttime="20230424 14:12:02.577" endtime="20230424 14:12:02.577"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathRemoveItem}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:02.577" level="INFO">Clicking button '//button[@id="remove-sauce-labs-onesie"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:02.577" endtime="20230424 14:12:02.681"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.577" endtime="20230424 14:12:02.682"></status>
+</kw>
+<kw name="Go to the checkout page input customer data and go to checkout:overview" library="saucedemo_keywords">
+<arguments>
+<arg>${customerFirstname}</arg>
+<arg>${customerlastName}</arg>
+<arg>${customerPostalCode}</arg>
+</arguments>
+<kw name="Go to the checkout page" library="saucedemo_keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathCheckoutButton}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:02.682" level="INFO">Clicking button '//button[@id="checkout"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:02.682" endtime="20230424 14:12:02.779"></status>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<doc>Waits until the current URL is ``expected``.</doc>
+<arguments>
+<arg>${urlCheckout}</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:02.779" endtime="20230424 14:12:02.799"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.682" endtime="20230424 14:12:02.799"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${checkoutFirstName}</arg>
+<arg>${firstName}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:02.800" level="INFO">Typing text 'Bruno' into text field '//input[@id="first-name"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:02.799" endtime="20230424 14:12:02.961"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${checkoutLastName}</arg>
+<arg>${lastname}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:02.961" level="INFO">Typing text 'Purvis' into text field '//input[@id="last-name"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:02.961" endtime="20230424 14:12:03.140"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${checkoutPostalCode}</arg>
+<arg>${postalCode}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:03.141" level="INFO">Typing text '1100' into text field '//input[@id="postal-code"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:03.140" endtime="20230424 14:12:03.271"></status>
+</kw>
+<kw name="Go to the checkout:overview page" library="saucedemo_keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${checkoutContinueButton}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:03.273" level="INFO">Clicking button '//input[@id="continue"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:03.272" endtime="20230424 14:12:03.365"></status>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<doc>Waits until the current URL is ``expected``.</doc>
+<arguments>
+<arg>${urlCheckoutOverview}</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.365" endtime="20230424 14:12:03.373"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.271" endtime="20230424 14:12:03.374"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:02.682" endtime="20230424 14:12:03.374"></status>
+</kw>
+<kw name="Validate total number of items" library="saucedemo_keywords">
+<arguments>
+<arg>2</arg>
+</arguments>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>${xpathShoppingCarElement}</arg>
+<arg>${totalNumberOfItemsToBuy}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:03.375" level="INFO">Verifying element '//span[@class="shopping_cart_badge"]' contains exact text '2'.</msg>
+<status status="PASS" starttime="20230424 14:12:03.375" endtime="20230424 14:12:03.404"></status>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns the number of elements matching ``locator``.</doc>
+<arguments>
+<arg>class:cart_item</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.404" level="INFO">${count} = 2</msg>
+<status status="PASS" starttime="20230424 14:12:03.404" endtime="20230424 14:12:03.404"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${count}</arg>
+<arg>${totalNumberOfItemsToBuy}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:03.404" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230424 14:12:03.404" endtime="20230424 14:12:03.404"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.374" endtime="20230424 14:12:03.404"></status>
+</kw>
+<kw name="Validate the names of the items" library="saucedemo_keywords">
+<arguments>
+<arg>${sauceLabsBikeLight}</arg>
+<arg>${sauceLabsBackpack}</arg>
+</arguments>
+<kw name="Get list of the names of the items" library="saucedemo_keywords">
+<assign>
+<var>@{listOfItemsNames}</var>
+</assign>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{itemsNamesList}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.404" level="INFO">@{itemsNamesList} = [ ]</msg>
+<status status="PASS" starttime="20230424 14:12:03.404" endtime="20230424 14:12:03.404"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>${xpathInventoryItemName}</arg>
+</arguments>
+<assign>
+<var>@{itemsNamesWebElementsList}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.420" level="INFO">@{itemsNamesWebElementsList} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="c59550f0885c01c31af82959e303699f", element="857045c1-02d7-411f-8910-562055c4584f")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20230424 14:12:03.404" endtime="20230424 14:12:03.420"></status>
+</kw>
+<kw name="${itemNameDiv} IN [ @{itemsNamesWebElementsList} ]" type="for">
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;857045c1-02d7-411f-8910-562055c4584f&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.438" level="INFO">${itemName} = Sauce Labs Bike Light</msg>
+<status status="PASS" starttime="20230424 14:12:03.420" endtime="20230424 14:12:03.438"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.438" endtime="20230424 14:12:03.438"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.420" endtime="20230424 14:12:03.438"></status>
+</kw>
+<kw name="${itemNameDiv} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;c59550f0885c01c31af82959e303699f&quot;, element=&quot;9b69a93f-6955-41d7-8dc6-78da7342d5df&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${itemNameDiv}</arg>
+</arguments>
+<assign>
+<var>${itemName}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.451" level="INFO">${itemName} = Sauce Labs Backpack</msg>
+<status status="PASS" starttime="20230424 14:12:03.438" endtime="20230424 14:12:03.451"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${itemsNamesList}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.451" endtime="20230424 14:12:03.451"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.438" endtime="20230424 14:12:03.451"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.420" endtime="20230424 14:12:03.451"></status>
+</kw>
+<msg timestamp="20230424 14:12:03.451" level="INFO">@{listOfItemsNames} = [ Sauce Labs Bike Light | Sauce Labs Backpack ]</msg>
+<status status="PASS" starttime="20230424 14:12:03.404" endtime="20230424 14:12:03.451"></status>
+</kw>
+<kw name="Lists Should Be Equal" library="Collections">
+<doc>Fails if given lists are unequal.</doc>
+<arguments>
+<arg>${listOfItemsNames}</arg>
+<arg>${expectedListOfItemsNames}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.451" endtime="20230424 14:12:03.451"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.404" endtime="20230424 14:12:03.451"></status>
+</kw>
+<kw name="Validate the quantity of a item" library="saucedemo_keywords">
+<arguments>
+<arg>${sauceLabsBikeLight}</arg>
+<arg>1</arg>
+</arguments>
+<kw name="Get the quantity of a item to buy" library="saucedemo_keywords">
+<arguments>
+<arg>${itemToBuy}</arg>
+</arguments>
+<assign>
+<var>${itemQuantityInTheShoppingCar}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathItemQuantity}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemQuantity}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.467" level="INFO">${xpathItemQuantity} = //div[text()="Sauce Labs Bike Light"]/ancestor::div[@class="cart_item"]/div[@class="cart_quantity"]</msg>
+<status status="PASS" starttime="20230424 14:12:03.467" endtime="20230424 14:12:03.467"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathItemQuantity}</arg>
+</arguments>
+<assign>
+<var>${itemQuantity}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.482" level="INFO">${itemQuantity} = 1</msg>
+<status status="PASS" starttime="20230424 14:12:03.467" endtime="20230424 14:12:03.482"></status>
+</kw>
+<msg timestamp="20230424 14:12:03.482" level="INFO">${itemQuantityInTheShoppingCar} = 1</msg>
+<status status="PASS" starttime="20230424 14:12:03.467" endtime="20230424 14:12:03.482"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${expectedQuantityOfTheItemToBuy}</arg>
+<arg>${itemQuantityInTheShoppingCar}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.482" endtime="20230424 14:12:03.482"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.451" endtime="20230424 14:12:03.482"></status>
+</kw>
+<kw name="Validate the quantity of a item" library="saucedemo_keywords">
+<arguments>
+<arg>${sauceLabsBackpack}</arg>
+<arg>1</arg>
+</arguments>
+<kw name="Get the quantity of a item to buy" library="saucedemo_keywords">
+<arguments>
+<arg>${itemToBuy}</arg>
+</arguments>
+<assign>
+<var>${itemQuantityInTheShoppingCar}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpathItemQuantity}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemQuantity}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.498" level="INFO">${xpathItemQuantity} = //div[text()="Sauce Labs Backpack"]/ancestor::div[@class="cart_item"]/div[@class="cart_quantity"]</msg>
+<status status="PASS" starttime="20230424 14:12:03.498" endtime="20230424 14:12:03.498"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathItemQuantity}</arg>
+</arguments>
+<assign>
+<var>${itemQuantity}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.514" level="INFO">${itemQuantity} = 1</msg>
+<status status="PASS" starttime="20230424 14:12:03.498" endtime="20230424 14:12:03.514"></status>
+</kw>
+<msg timestamp="20230424 14:12:03.514" level="INFO">${itemQuantityInTheShoppingCar} = 1</msg>
+<status status="PASS" starttime="20230424 14:12:03.498" endtime="20230424 14:12:03.529"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${expectedQuantityOfTheItemToBuy}</arg>
+<arg>${itemQuantityInTheShoppingCar}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.529" endtime="20230424 14:12:03.529"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.482" endtime="20230424 14:12:03.529"></status>
+</kw>
+<kw name="Validate the prices of the items" library="saucedemo_keywords">
+<arguments>
+<arg>${sauceLabsBikeLight}</arg>
+<arg>${sauceLabsBackpack}</arg>
+</arguments>
+<kw name="${itemName} IN [ @{listOfItemsNames} ]" type="for">
+<kw name="${itemName} = Sauce Labs Bike Light" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+<arg>xpath_item_price=${xpathItemPriceCheckoutOverview}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.529" level="INFO">${xpathItemPrice} = //div[text()="Sauce Labs Bike Light"]/ancestor::div[@class="cart_item_label"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:03.529" endtime="20230424 14:12:03.529"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.561" level="INFO">${itemPrice} = $9.99</msg>
+<status status="PASS" starttime="20230424 14:12:03.529" endtime="20230424 14:12:03.561"></status>
+</kw>
+<msg timestamp="20230424 14:12:03.561" level="INFO">${itemPrice} = $9.99</msg>
+<status status="PASS" starttime="20230424 14:12:03.529" endtime="20230424 14:12:03.561"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${itemPrice}</arg>
+<arg>${itemsNamesAndPricesDictionary['${itemName}']}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.561" endtime="20230424 14:12:03.561"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.529" endtime="20230424 14:12:03.561"></status>
+</kw>
+<kw name="${itemName} = Sauce Labs Backpack" type="foritem">
+<kw name="Get item price" library="saucedemo_keywords">
+<arguments>
+<arg>${itemName}</arg>
+<arg>xpath_item_price=${xpathItemPriceCheckoutOverview}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+<arg>nameOftheProduct</arg>
+<arg>${itemName}</arg>
+</arguments>
+<assign>
+<var>${xpathItemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.561" level="INFO">${xpathItemPrice} = //div[text()="Sauce Labs Backpack"]/ancestor::div[@class="cart_item_label"]/descendant::div[@class="inventory_item_price"]</msg>
+<status status="PASS" starttime="20230424 14:12:03.561" endtime="20230424 14:12:03.561"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_item_price}</arg>
+</arguments>
+<assign>
+<var>${itemPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.595" level="INFO">${itemPrice} = $29.99</msg>
+<status status="PASS" starttime="20230424 14:12:03.561" endtime="20230424 14:12:03.595"></status>
+</kw>
+<msg timestamp="20230424 14:12:03.595" level="INFO">${itemPrice} = $29.99</msg>
+<status status="PASS" starttime="20230424 14:12:03.561" endtime="20230424 14:12:03.595"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${itemPrice}</arg>
+<arg>${itemsNamesAndPricesDictionary['${itemName}']}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.595" endtime="20230424 14:12:03.596"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.561" endtime="20230424 14:12:03.596"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.529" endtime="20230424 14:12:03.596"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.529" endtime="20230424 14:12:03.596"></status>
+</kw>
+<kw name="Validate the subtotal price on the checkout:overview page" library="saucedemo_keywords">
+<arguments>
+<arg>${totalPriceOfTheItems}</arg>
+</arguments>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathSubTotalPriceCheckoutPage}</arg>
+</arguments>
+<assign>
+<var>${subTotalPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.627" level="INFO">${subTotalPrice} = Item total: $39.98</msg>
+<status status="PASS" starttime="20230424 14:12:03.597" endtime="20230424 14:12:03.627"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${subTotalPrice}</arg>
+<arg>Item total:${Space}</arg>
+</arguments>
+<assign>
+<var>${subTotalPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.628" level="INFO">${subTotalPrice} = $39.98</msg>
+<status status="PASS" starttime="20230424 14:12:03.628" endtime="20230424 14:12:03.628"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${subTotalPrice}</arg>
+<arg>$${expectedSubTotalPrice}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.628" endtime="20230424 14:12:03.629"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.597" endtime="20230424 14:12:03.629"></status>
+</kw>
+<kw name="Validate the tax value on the checkout:overview page" library="saucedemo_keywords">
+<arguments>
+<arg>${expectedTaxValue}</arg>
+</arguments>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathTaxCheckoutPage}</arg>
+</arguments>
+<assign>
+<var>${taxValueCheckoutPage}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.654" level="INFO">${taxValueCheckoutPage} = Tax: $3.20</msg>
+<status status="PASS" starttime="20230424 14:12:03.630" endtime="20230424 14:12:03.654"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${taxValueCheckoutPage}</arg>
+<arg>Tax:${Space}</arg>
+</arguments>
+<assign>
+<var>${taxValueCheckoutPage}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.654" level="INFO">${taxValueCheckoutPage} = $3.20</msg>
+<status status="PASS" starttime="20230424 14:12:03.654" endtime="20230424 14:12:03.654"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>$${expectedTaxValue}</arg>
+<arg>${taxValueCheckoutPage}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.654" endtime="20230424 14:12:03.654"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.630" endtime="20230424 14:12:03.654"></status>
+</kw>
+<kw name="Validate the total price on the checkout:overview page" library="saucedemo_keywords">
+<arguments>
+<arg>${expectedTaxValue}</arg>
+<arg>${totalPriceOfTheItems}</arg>
+</arguments>
+<kw name="Get total value on the checkout:overview page" library="saucedemo_keywords">
+<assign>
+<var>${totalPriceValueCheckoutPage}</var>
+</assign>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathTotalPriceValueCheckoutPage}</arg>
+</arguments>
+<assign>
+<var>${totalPriceValueCheckoutPage}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.716" level="INFO">${totalPriceValueCheckoutPage} = Total: $43.18</msg>
+<status status="PASS" starttime="20230424 14:12:03.669" endtime="20230424 14:12:03.716"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${totalPriceValueCheckoutPage}</arg>
+<arg>Total:${Space}</arg>
+</arguments>
+<assign>
+<var>${totalPriceValueCheckoutPage}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.716" level="INFO">${totalPriceValueCheckoutPage} = $43.18</msg>
+<status status="PASS" starttime="20230424 14:12:03.716" endtime="20230424 14:12:03.716"></status>
+</kw>
+<msg timestamp="20230424 14:12:03.716" level="INFO">${totalPriceValueCheckoutPage} = $43.18</msg>
+<status status="PASS" starttime="20230424 14:12:03.669" endtime="20230424 14:12:03.716"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>round((${totalPriceOftheItems} + ${expectedTaxValue}),2)</arg>
+</arguments>
+<assign>
+<var>${expectedItemTotalPrice}</var>
+</assign>
+<msg timestamp="20230424 14:12:03.716" level="INFO">${expectedItemTotalPrice} = 43.18</msg>
+<status status="PASS" starttime="20230424 14:12:03.716" endtime="20230424 14:12:03.716"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>$${expectedItemTotalPrice}</arg>
+<arg>${totalPriceValueCheckoutPage}</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.716" endtime="20230424 14:12:03.716"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.654" endtime="20230424 14:12:03.716"></status>
+</kw>
+<kw name="Go to checkout:complete page and validate successful order completion" library="saucedemo_keywords">
+<kw name="Go to checkout:complete page" library="saucedemo_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathFinishButtonCheckoutPage}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:03.716" level="INFO">Clicking element '//button[@id="finish"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:03.716" endtime="20230424 14:12:03.791"></status>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<doc>Waits until the current URL is ``expected``.</doc>
+<arguments>
+<arg>${urlCheckoutComplete}</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.791" endtime="20230424 14:12:03.798"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.716" endtime="20230424 14:12:03.799"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>${xpathThankYouOrder}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:03.815" level="INFO">Current page contains element '//h2[text()="Thank you for your order!"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:03.799" endtime="20230424 14:12:03.815"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.716" endtime="20230424 14:12:03.815"></status>
+</kw>
+<kw name="Go to inventory page" library="saucedemo_keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathBackHomeButton}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:03.816" level="INFO">Clicking button '//button[@id="back-to-products"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:03.816" endtime="20230424 14:12:03.911"></status>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<doc>Waits until the current URL is ``expected``.</doc>
+<arguments>
+<arg>${urlInventory}</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:03.912" endtime="20230424 14:12:03.919"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.816" endtime="20230424 14:12:03.919"></status>
+</kw>
+<kw name="Logout" library="login_keywords" type="teardown">
+<kw name="Open Left Menu" library="saucedemo_keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathOpenMenuButton}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:03.922" level="INFO">Clicking button '//button[text()="Open Menu"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:03.921" endtime="20230424 14:12:04.003"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.921" endtime="20230424 14:12:04.003"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpathLogoutButton}</arg>
+</arguments>
+<msg timestamp="20230424 14:12:04.004" level="INFO">Clicking element '//a[@id="logout_sidebar_link"]'.</msg>
+<status status="PASS" starttime="20230424 14:12:04.004" endtime="20230424 14:12:04.146"></status>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<doc>Waits until the current URL is ``expected``.</doc>
+<arguments>
+<arg>${urlLogin}</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20230424 14:12:04.146" endtime="20230424 14:12:04.155"></status>
+</kw>
+<status status="PASS" starttime="20230424 14:12:03.920" endtime="20230424 14:12:04.155"></status>
+</kw>
+<doc>We go to the e-commerce website: "https://www.saucedemo.com/" and login as a "standard_user".
+The cart is validated as being empty and in the inventory page we get the prices of all the items
+on a dictionary variable in order to validate those prices in the cart and in the
+checkout:overview page. Three items are chosen to be bought: "Sauce Labs Bike Light",
+"Sauce Labs Backpack" and "Sauce Labs Onesie". At this point, it is validated the added items,
+quantities and prices in the cart. Then, the product "Sauce Labs Onesie" it's removed from the cart
+and the checkout is filled with the customer's information. Next, on the checkout overview, it's
+validated the added items, quantities, prices, the sum of thoses prices and the correspondent tax.
+At this step, the finish button is clicked and the successful order completion is validated. It is
+now expected to go to the inventory page logging out afterwards.</doc>
+<tags>
+<tag>Saucedemo_E2E</tag>
+</tags>
+<status status="PASS" starttime="20230424 14:11:58.194" endtime="20230424 14:12:04.156" critical="yes"></status>
+</test>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="teardown">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230424 14:12:04.158" endtime="20230424 14:12:06.558"></status>
+</kw>
+<doc>A test suite containing test cases related to the e-commerce website: "https://www.saucedemo.com/"</doc>
+<status status="PASS" starttime="20230424 14:11:54.776" endtime="20230424 14:12:06.558"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">Saucedemo_E2E</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="saucedemo E2E">saucedemo E2E</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
